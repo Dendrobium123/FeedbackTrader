@@ -38,13 +38,14 @@
   - 修复：`fix/issue-123` 或 `fix/nullpointer-crash`
   - 文档：`docs/update-readme`
   - 重构：`refactor/module-name`
-- 不要使用长期与上游同名的分支（例如直接编辑 `b1`），以免混淆。
+- 不要使用长期与上游同名的分支（例如直接编辑 `branches`），以免混淆。
+- 对于仅修改test文佳佳
 
 ---
 
 ## 提交（commit）规范
 - 使用简明的短标题（第一行不超过 72 字符），风格可选但统一。例如：
-  - feat: add login endpoint
+  - feature: add login endpoint
   - fix: prevent null pointer in parser
   - docs: update contributing guide
 - 描述正文（必要时）说明为什么要做该改动以及如何测试。

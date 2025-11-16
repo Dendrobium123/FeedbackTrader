@@ -12,6 +12,7 @@ logger = get_logger(__name__)
 ADAPTER_MODULES = {
     'csv': 'src.data.adapters.csv_adapter',
     'yfinance': 'src.data.adapters.yfinance_adapter',
+    'akshare': 'src.data.adapters.akshare_adapter',
 }
 
 

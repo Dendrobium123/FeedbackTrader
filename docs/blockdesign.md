@@ -3,7 +3,6 @@
 首先建立回测系统，回测系统应该实现以下接口：
 装载股票数据，即向Fetcher发送Data_Request，装载返回值Data_Response；装载策略，得到结果。
 
-
 # Module -- Data
 
 ## Interface

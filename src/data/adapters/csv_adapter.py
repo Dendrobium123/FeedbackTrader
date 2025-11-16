@@ -7,12 +7,15 @@ logger = get_logger(__name__)
 
 
 def fetch(symbol, start, end, interval='1d', **kwargs):
-    """从本地 CSV 文件读取数据。
+    """Read historical data from a local CSV file.
 
-    策略：如果 symbol 是文件路径（以 .csv 结尾），直接读取；否则在 `data/csv/` 下查找 <symbol>.csv。
-    返回 DataFrame，index 为 DatetimeIndex，包含标准列（Open, High, Low, Close, Adj Close, Volume）。
+    Behavior: if `symbol` is a file path ending with `.csv`, read it directly;
+    otherwise look for `<symbol>.csv` under `data/csv/` (or `csv_base` if provided).
+
+    Returns a pandas DataFrame with a DatetimeIndex and standard columns
+    (Open, High, Low, Close, Adj Close, Volume) when available.
     """
-    # 支持传入文件路径或符号名
+    # support either a file path or a symbol name
     if symbol.lower().endswith('.csv'):
         path = symbol
     else:
@@ -29,7 +32,7 @@ def fetch(symbol, start, end, interval='1d', **kwargs):
         logger.exception("CSV adapter failed to read %s: %s", path, e)
         return pd.DataFrame()
 
-    # 尝试规范化列名
+    # try to normalize common column names
     rename_map = {}
     for c in df.columns:
         lc = c.lower()
@@ -49,11 +52,11 @@ def fetch(symbol, start, end, interval='1d', **kwargs):
     if rename_map:
         df = df.rename(columns=rename_map)
 
-    # 确保时间索引
+    # ensure time index
     if not isinstance(df.index, pd.DatetimeIndex):
         df.index = pd.to_datetime(df.index)
 
-    # 按时间筛选
+    # filter by time range
     if start:
         df = df[df.index >= pd.to_datetime(start)]
     if end:

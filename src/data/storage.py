@@ -5,7 +5,7 @@ from ..system.log import get_logger
 
 logger = get_logger(__name__)
 
-CACHE_DIR = os.path.join(os.getcwd(), 'data_cache')
+CACHE_DIR = os.path.join(os.getcwd(), 'data')
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 

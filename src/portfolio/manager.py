@@ -1,28 +1,28 @@
 """
-Portfolio 管理器接口：
-- 管理持仓、现金、估值
-- 提供下单建议与成交回调
+Portfolio manager interface:
+- manage positions, cash, valuation
+- provide order suggestions and fill callbacks
 """
 from typing import Dict, Any
 
 
 class Portfolio:
     def __init__(self, initial_cash: float, config: Dict[str, Any]):
-        """初始化投资组合。"""
+        """Initialize the portfolio."""
         pass
 
     def allocate(self, symbol: str, quantity: float) -> None:
-        """调整持仓分配（仅修改内部目标仓位）。"""
+        """Adjust position allocation (modify internal target position)."""
         pass
 
     def update_on_fill(self, order: Dict[str, Any], fill: Dict[str, Any]) -> None:
-        """交易被成交后的回调，用于更新持仓和现金。"""
+        """Callback when an order is filled; update positions and cash."""
         pass
 
     def get_positions(self) -> Dict[str, Any]:
-        """返回当前持仓快照。"""
+        """Return a snapshot of current positions."""
         pass
 
     def get_value(self) -> float:
-        """返回组合当前估值（含现金）。"""
+        """Return the current portfolio value (including cash)."""
         pass
