@@ -2,11 +2,16 @@
 
 感谢你希望为本仓库贡献代码！为保证高效、可审阅且安全的协作，请按下面的流程和规范来提交改动。此文档同时覆盖 GitHub Desktop 与命令行（CLI）两种常见方式，并提供故障排查与维护者提示。
 
+> Talk is cheap, show me the code.
+> 
+> 言廉行贵，务实为先。
+
 ## 目录
 - Quick Start（3 分钟上手）
-- 分支与命名规范
-- 提交（commit）规范
-- Pull Request（PR）规范
+- 项目分支与命名规范
+- Commit 规范
+- Pull Request 规范
+- Code 规范
 - 在 GitHub Desktop 的具体操作
 - 命令行（CLI）常用命令
 - 同步 fork 与解决冲突
@@ -26,7 +31,7 @@
 
 ---
 
-## 分支与命名规范
+## 项目分支与命名规范
 - 基本原则：每次改动使用独立分支（不要直接在 `main` 或 `branches` 上开发）。
 - 分支命名示例：
   - 功能：`feature/short-description`（如 `feature/backtest`）
@@ -56,6 +61,12 @@
   - 关联 issue（例如 `Fixes #123`）
 - 在 PR 中添加 reviewer、label（如 `feature`, `bug`）、并指明是否需要回退或兼容性注意事项。
 - 若需要多轮修改，请在同一 feature 分支上继续提交，PR 会自动更新。
+
+---
+
+# Code 规范
+- src文件夹中不应该包含一个中文字符
+- 对于feature分支的PR，必须提交一份包含主要函数摘要的md文件，至少包括参数，返回值和函数功能的描述
 
 ---
 
