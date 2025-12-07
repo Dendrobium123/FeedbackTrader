@@ -1,7 +1,5 @@
 # FeedbackTrader Manual
 
-Last Updated: 2025-11-20
-
 ---
 
 ## 1. Introduction
